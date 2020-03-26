@@ -95,7 +95,7 @@ function listAuthenicatedUserRepos()
 // 1. Write code for listBranches in a given repo under an owner. See list branches
 async function listBranches(owner,repo)
 {
-	let options = getDefaultOptions(`/`, "GET");
+	let options = getDefaultOptions(`/repos/:owner/:repo/branches`, "GET");
 
 	// Send a http request to url and specify a callback that will be called upon its return.
 	return new Promise(function(resolve, reject)
@@ -112,7 +112,7 @@ async function listBranches(owner,repo)
 // 2. Write code to create a new repo
 async function createRepo(owner,repo)
 {
-	let options = getDefaultOptions("/", "POST");
+	let options = getDefaultOptions('/user/repos', "POST");
 
 	// Send a http request to url and specify a callback that will be called upon its return.
 	return new Promise(function(resolve, reject)
@@ -128,7 +128,7 @@ async function createRepo(owner,repo)
 // 3. Write code for creating an issue for an existing repo.
 async function createIssue(owner,repo, issueName, issueBody)
 {
-	let options = getDefaultOptions("/", "POST");
+	let options = getDefaultOptions("/repos/:owner/:repo/issues", "POST");
 
 	// Send a http request to url and specify a callback that will be called upon its return.
 	return new Promise(function(resolve, reject)
@@ -144,7 +144,7 @@ async function createIssue(owner,repo, issueName, issueBody)
 // 4. Write code for editing a repo to enable wiki support.
 async function enableWikiSupport(owner,repo)
 {
-	let options = getDefaultOptions("/", "PATCH");
+	let options = getDefaultOptions("/repos/:owner/:repo", "PATCH");
 
 	// Send a http request to url and specify a callback that will be called upon its return.
 	return new Promise(function(resolve, reject)
